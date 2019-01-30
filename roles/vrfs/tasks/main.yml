@@ -1,0 +1,9 @@
+    - name: configure vrfs and purge all others
+      ios_vrf:
+        vrfs:
+          - Employee
+          - Guests
+          - IoT
+          - SecretIsolated
+          - TheJunkYard
+        purge: yes

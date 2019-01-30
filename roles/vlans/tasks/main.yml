@@ -1,0 +1,7 @@
+- name: BUILD L2 VLAN XML DATA
+  template:
+    src: "vlans.j2"
+    dest: "{{ configs_dir_tasks }}/{{ inventory_hostname }}/vlans.xml"
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    src: "{{ configs_dir_tasks }}/{{ inventory_hostname }}/vlans.xml"

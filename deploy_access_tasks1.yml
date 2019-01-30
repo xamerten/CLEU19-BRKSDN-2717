@@ -1,0 +1,9 @@
+---
+- hosts: Access9k
+  connection: local
+  gather_facts: no
+  vars_files:
+    - ./project_vars/connection_vars_netconf.yml
+    - ./project_vars/path_vars.yml
+  roles:
+    - vlans

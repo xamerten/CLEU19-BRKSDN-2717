@@ -1,0 +1,14 @@
+- name: BUILD L3_SVI XML DATA
+  template:
+    src: l3svi.j2
+    dest: "{{ configs_dir_tasks }}/{{ inventory_hostname }}/l3svi.xml"
+- name: PUSH L3_SVI NETCONF TO REMOTES
+  netconf_config:
+    src: "{{ configs_dir_tasks }}/{{ inventory_hostname }}/l3svi.xml"
+- name: BUILD L2 VLAN DB for L3_SVI XML DATA
+  template:
+    src: l2forl3svi.j2
+    dest: "{{ configs_dir_tasks }}/{{ inventory_hostname }}/l2forl3svi.xml"
+- name: PUSH L2_VLAN_DB NETCONF TO REMOTES
+  netconf_config:
+    src: "{{ configs_dir_tasks }}/{{ inventory_hostname }}/l2forl3svi.xml"

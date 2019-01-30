@@ -1,0 +1,41 @@
+configs/                                    ## Stores generated xml configurations based on role/templates before sending through netconf
+    Access01/                               ## Each device in the inventory has it's own subfolder with the .xml file for each role
+        vlans.xml
+    Access02/
+        vlans.xml
+    Core01
+        l3svi.xml
+groups_vars/                                ## Variables used throughout the project
+        all.yml
+host_vars/                                  ## Variables only related to specific hosts, this is automatically imported when running a specific host
+        access01.yml
+        access02.yml
+project_vars/                               ## Project vars for paths, credentials, etc
+        connection_vars_netconf.yml
+        connection_vars.yml
+        net_requirements_vars.yml
+        path_vars.yml
+roles/                                      ## Contains a folder for each set of tasks like configuring vlans, svi interfaces, etc
+    l3svi/                                  ## Contains tasks, handlers, templates, files, vars, defaults, meta, library, module_utils, lookup_plugins & template folders
+        tasks/                              ## folder conftaining the actual ansible tasks
+            main.yml                        ## file containing the actual ansible tasks, main.yml is automatically called when using roles this filename is mandatory
+        templates/
+            l3svi.j2                        ## Jinja2 based tempalte, source to generate the netconf .xml file for hosts
+    vlans/
+        tasks/
+             main.yml
+        templates/
+             vlans.j2
+
+host                                        ## Inventory file containg all the host IP-Addresses
+Jenkinsfile                                 ## File used by jenkins multibranch pipeline with actual pipeline definitions and which playbooks to call in each stage
+
+pre_checks.yml                              ## A master playbook importing multiple sub-playbooks
+pre_checks_taks1.yml                        ## A sub playbook calling specific roles
+
+deploy_core.yml
+deploy_core_tasks1.yml
+deploy_core_tasks2.yml
+
+deploy_access.yml
+deploy_access_tasks1.yml

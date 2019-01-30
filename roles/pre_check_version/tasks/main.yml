@@ -1,0 +1,17 @@
+    - ios_facts:
+        gather_subset:
+          - all
+
+    - set_fact:
+        ios_check_ok: true
+      when: ansible_net_version == ios_campus_core_version
+
+
+    - name: Display the version
+      debug:
+        msg: "The version is {{ansible_net_version}}"
+      when: ios_check_ok == true
+
+    - fail:
+        msg: "The required IOS version is {{ios_campus_core_version}} but version {{ansible_net_version}} was found on {{ansible_net_hostname}} on IP-Address {{inventory_hostname}}"
+      when: ios_check_ok == false

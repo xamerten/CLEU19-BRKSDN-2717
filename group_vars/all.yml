@@ -1,0 +1,17 @@
+vlan_data:
+  110:
+    vlan_desc: Data-SwA
+    vlan_name: wired_data
+    ipv4_network: 10.4.110.0/24
+  111:
+    vlan_desc: Voice-SwA
+    vlan_name: wired_voice
+    ipv4_network: 10.4.111.0/24
+  120:
+    vlan_desc: Data-SwB
+    vlan_name: wired_data
+    ipv4_network: 10.4.120.0/24
+  121:
+    vlan_desc: Voice-SwB
+    vlan_name: wired_voice
+    ipv4_network: 10.4.121.0/24

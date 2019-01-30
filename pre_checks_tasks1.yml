@@ -1,0 +1,8 @@
+---
+- hosts: Core9k
+  connection: network_cli
+  vars_files:
+  - ./project_vars/connection_vars.yml
+  - ./project_vars/net_requirement_vars.yml 
+  roles:
+    - pre_check_version

@@ -1,0 +1,9 @@
+---
+- hosts: Core9k
+  connection: network_cli
+  gather_facts: no
+  vars_files:
+    - ./project_vars/connection_vars.yml
+    - ./project_vars/path_vars.yml
+  roles:
+    - vrfs

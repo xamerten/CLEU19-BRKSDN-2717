@@ -1,0 +1,7 @@
+ansible_connection: netconf
+ansible_network_os: ios
+ansible_user: cleu
+ansible_ssh_pass: cleu19!
+ansible_become: yes
+ansible_become_method: enable
+ansible_become_pass: cleu19!

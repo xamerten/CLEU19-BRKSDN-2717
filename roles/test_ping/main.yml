@@ -1,0 +1,4 @@
+    - name: Ping the hosts
+      ping:
+      debug:
+        msg: "Ping Testing {{ansible_net_hostname}}"
